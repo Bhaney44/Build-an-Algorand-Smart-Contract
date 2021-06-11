@@ -18,4 +18,4 @@ Step Two: Implement Algorand Smart Contract in TEAL
 3. Comment and Publish Code
 
 # Copyright Brian Haney 2021
-# License MIT
+# MIT License 
