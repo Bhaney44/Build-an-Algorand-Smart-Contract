@@ -11,6 +11,7 @@ How to successfully execute an Algorand Smart Contract to transfer value using T
 # Solution Approach
 
 Step One: Understanding Algorand Smart Contracts: https://medium.com/algorand/understanding-algorand-smart-contracts-b9fc743e7a0f
+
 Step Two: Implement Algorand Smart Contract in TEAL
 
 # Instructions
