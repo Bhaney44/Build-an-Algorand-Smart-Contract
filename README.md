@@ -10,7 +10,11 @@ How to successfully execute an Algorand Smart Contract to transfer value using T
 
 Step One: Jason Weathersby, Understanding Algorand Smart Contracts, https://medium.com/algorand/understanding-algorand-smart-contracts-b9fc743e7a0f
 
-Step Two: Implement Algorand Smart Contract in TEAL
+Step Two: Read the Docs, https://pyteal.readthedocs.io/en/stable/examples.html#atomic-swap
+
+Step Three: Test examples, https://pyteal.readthedocs.io/en/stable/examples.html#atomic-swap
+
+Step Four: Implement Algorand Smart Contract in TEAL
 
 # Instructions
 1. Write Teal Program
