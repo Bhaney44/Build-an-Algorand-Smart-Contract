@@ -1,4 +1,7 @@
 #pragma version 2
+# run teal program
+# goal clerk compile program.teal
+
 txn Fee
 int 1000
 <
