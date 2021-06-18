@@ -8,7 +8,7 @@ How to successfully execute an Algorand Smart Contract to transfer value using T
 
 # Solution Approach
 
-Step One: Jason Weathersby, Understanding Algorand Smart Contracts, https://medium.com/algorand/understanding-algorand-smart-contracts-b9fc743e7a0f
+Step One: Read Understanding Algorand Smart Contracts, https://medium.com/algorand/understanding-algorand-smart-contracts-b9fc743e7a0f
 
 Step Two: Read the Docs, https://pyteal.readthedocs.io/en/stable/examples.html#atomic-swap
 
