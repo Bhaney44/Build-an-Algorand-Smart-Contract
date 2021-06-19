@@ -1,0 +1,34 @@
+# pragma version 2
+# goal clerk compile program.teal
+txn Fee
+int 1000
+<
+txn TypeEnum
+int pay
+==
+txn CloseRemainderTo
+global ZeroAddress
+==
+&&
+txn RekeyTo
+global ZeroAddress
+==
+&&
+&&
+txn Receiver
+addr KM2C6WPCGREBUOXZPGULM4UZV7GRF4LECL43FFG3RXNOHROBBCJ662UUBA
+==
+arg 0
+sha256
+byte base32(2323232323232323)
+==
+&&
+txn Receiver
+addr H26J6JNSVLX3S5LXTKV6ZRD3EOL7O2GIPZFWYOLKGYHJZ3DON2KWONXDVQ
+==
+txn FirstValid
+int 1000
+>
+&&
+||
+&&
