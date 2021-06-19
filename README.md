@@ -21,5 +21,9 @@ Step Four: Implement Algorand Smart Contract in TEAL
 2. Compile and Test on Testnet
 3. Comment and Publish Code
 
+# Issues
+1. Node contact error (closed): https://github.com/algorand/pyteal/issues/68
+
 # Copyright Brian Haney 2021
 # MIT License 
+
