@@ -1,0 +1,35 @@
+
+#replace the accts with 2 that you have
+
+#ACCTA=OB55C2EGRLY6SOLAI7LD7CXMOXVT4VACWCYCBKQHBYJPW5C52EWM4KLD5U
+#ACCTB=XHDW6C2EQHLZBVK7KXUSGL56TXDSQM3KWPSXPDHIGSPB26INOG75VLAJXU
+
+ACCTA=KM2C6WPCGREBUOXZPGULM4UZV7GRF4LECL43FFG3RXNOHROBBCJ662UUBA
+ACCTB=H26J6JNSVLX3S5LXTKV6ZRD3EOL7O2GIPZFWYOLKGYHJZ3DON2KWONXDVQ
+
+PROGRAM=simple.teal
+TXN=simple.txn
+
+echo "
+#pragma version 3
+int 1
+" > $PROGRAM
+
+echo "Copying program into algod container"
+./sandbox copy $PROGRAM
+
+echo "Compiling and signing program"
+./sandbox goal clerk compile $PROGRAM -a $ACCTA -s -o $PROGRAM.signed
+./sandbox goal clerk compile -D $PROGRAM.signed
+
+echo "Creating transaction file"
+./sandbox goal clerk send -a 5 -f $ACCTA -t $ACCTB -o $TXN
+./sandbox goal clerk inspect $TXN
+
+echo "Signing transaction file with logic"
+./sandbox goal clerk sign -i $TXN -o $TXN.signed -L $PROGRAM.signed
+./sandbox goal clerk inspect $TXN.signed
+
+
+echo "Sending transaction to network"
+./sandbox goal clerk rawsend -f $TXN.signed
