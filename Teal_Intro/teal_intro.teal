@@ -1,0 +1,178 @@
+((addr2 and secret) || (addr1 and timeout)) && (ok fee and !rekey)
+
+// Are used to comment in TEAL
+// htlc.teal
+// Push the CloseRemainderTo property of the current transaction onto the stack
+txn CloseRemainderTo
+
+// Push addr2 onto the stack as the intended recipient
+addr SOEI4UA72A7ZL5P25GNISSVWW724YABSGZ7GHW5ERV4QKK2XSXLXGXPG5Y
+
+// The == operator is used to verify that both of these are the same
+// This pops the two values off the stack and pushes the result 0 or 1
+==
+
+// Push the current transaction’s Receiver property onto the stack
+// In this example it should be addr2
+txn Receiver
+
+// Push addr2 on the stack using the addr constant
+addr SOEI4UA72A7ZL5P25GNISSVWW724YABSGZ7GHW5ERV4QKK2XSXLXGXPG5Y
+
+// Use the == to verify that these are equal which pops off the top two values of the stack
+// and returns 0 or 1
+==
+
+// The stack should currently have two values from the two top conditions
+// These will be either 0s or 1s
+// Push the && operator which will AND the two previous conditions and return
+// either 0 or 1, which leaves one value on the stack either a 0 or a 1
+&&
+
+// Push the first argument to the transaction onto the stack
+arg 0
+
+// The len operator pops the arg off the stack and 
+// pushes the length of the argument onto the stack
+len
+
+// Push a constant int of value 46 onto the stack
+int 46
+
+// The == operator verifies that the length of the argument
+// is equal to 46. This pops the two values and returns a 0 or 1
+// The stack now contains two values with a value of 0 or 1
+==
+
+// The && operator will AND the two values in the stack
+// which pops both values off the stack and returns a 0 or 1
+// The stack should now only have one value on the stack, 0 or 1
+&&
+
+// arg 0 is pushed back onto the stack
+// This represents the hashed passcode
+arg 0
+
+// The sha256 operator pops the arg 0 off the stack
+// and pushes the hash value of the argument onto the stack
+sha256
+
+// The constant byte array of the base64 version of our secret is pushed onto the stack
+byte base64 QzYhq9JlYbn2QdOMrhyxVlNtNjeyvyJc/I8d8VAGfGc=
+
+// The == operator pops the two values and push 0 or 1 on to the stack
+// If arg0 is equal to the secret this value will be 1 and if not it will be 0
+==
+
+// Two values are now on the stack. The && operator is used 
+// to pop the last two values and push either 0 or 1
+// This will AND all previous conditions to this one.
+// The stack should only have a 0 or 1 value now
+&&
+
+// The following six lines of teal check if the 
+// transaction is reciever is set to addr1 and that the CloseRemainderTo
+// transaction property is also set to addr1.
+// Once completed the stack will have the 0 or 1 
+// from the previous clause and a 1 or 0 from the 
+// the beginning of the second clause. 
+txn CloseRemainderTo
+addr RFGEHKTFSLPIEGZYNVYALM6J4LJX4RPWERDWYS2PFKNVDWW3NG7MECQTJY
+==
+txn Receiver
+addr RFGEHKTFSLPIEGZYNVYALM6J4LJX4RPWERDWYS2PFKNVDWW3NG7MECQTJY
+==
+&&
+
+// The FirstValid parameter from the transaction is pushed onto the stack
+txn FirstValid
+
+// The constant int value of 67240 is pushed onto the stack
+// This is a hard coded round number and is only used here as an example
+int 67240
+
+// The > operator is used to check if First Valid is greater than 67240
+// This is used to see if the transaction is timed out and if so addr1 can
+// Submit the transaction to return the funds.
+// This pops the last two values and returns a 0 or 1
+// At the end of this operation, we should have 
+// three values on the stack. One for the first clause, and two for the second clause
+>
+
+// The && operator is used to AND the last two options in the second clause which pops the
+// last two values and pushes a 1 or 0. This will leave only two values on the stack
+&&
+
+// The || operator is pushed onto the stack which ORs
+// the first two clauses
+// and pops the two values and pushes a 0 or 1 
+|| 
+
+// The current transaction fee is pushed onto the stack
+txn Fee
+
+// The constant integer of value 1000000 is pushed
+// onto the stack, which is specified in micro algos
+// In this example this equates to 1 algo
+int 1000000 
+
+// The < operator is used to pop those last two values and replace with a 
+// 0 or 1. This just verifies that the fee is not greater than 1 algo 
+<
+
+// Next the transaction RekeyTo property is pushed on to the stack.
+txn RekeyTo
+
+// The global zero address is then pushed onto the stack. 
+global ZeroAddress
+
+// the == operator will replace the last two fields with a 0 or a 1. If the value is 1, this is not a rekey transaction. This is a very important check for stateless smart contracts.
+==
+
+// next the && operator is used to AND the two conditions in the third clause.
+// At this point there will be two values on the stack
+&&
+
+// The && operator is used to pop those values by anding them and pushing either 
+// a 1 or 0
+// Since this is the end of the program this value represents the return value
+// and determines if the transaction executed successfully 
+&&
+
+txn CloseRemainderTo
+addr SOEI4UA72A7ZL5P25GNISSVWW724YABSGZ7GHW5ERV4QKK2XSXLXGXPG5Y
+==
+txn Receiver
+addr SOEI4UA72A7ZL5P25GNISSVWW724YABSGZ7GHW5ERV4QKK2XSXLXGXPG5Y
+==
+&&
+arg 0
+len
+int 46
+==
+&&
+arg 0
+sha256
+byte base64 QzYhq9JlYbn2QdOMrhyxVlNtNjeyvyJc/I8d8VAGfGc=
+==
+&&
+txn CloseRemainderTo
+addr RFGEHKTFSLPIEGZYNVYALM6J4LJX4RPWERDWYS2PFKNVDWW3NG7MECQTJY
+==
+txn Receiver
+addr RFGEHKTFSLPIEGZYNVYALM6J4LJX4RPWERDWYS2PFKNVDWW3NG7MECQTJY
+==
+&&
+txn FirstValid
+int 67240
+>
+&&
+||
+txn Fee
+int 1000000
+<
+txn RekeyTo
+global ZeroAddress
+==
+&&
+&&
