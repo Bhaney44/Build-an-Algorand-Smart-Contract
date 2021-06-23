@@ -14,7 +14,9 @@ Step Two: Read the Docs, https://pyteal.readthedocs.io/en/stable/examples.html#a
 
 Step Three: Test examples, https://pyteal.readthedocs.io/en/stable/examples.html#atomic-swap
 
-Step Four: Implement Algorand Smart Contract in TEAL
+Step Four: Read Creating Stateful Algorand Smart Contracts in Python with PyTeal, https://developer.algorand.org/articles/creating-stateful-algorand-smart-contracts-python-pyteal/
+
+Step Five: Implement Algorand Smart Contract in TEAL
 
 # Instructions
 1. Write Teal Program
