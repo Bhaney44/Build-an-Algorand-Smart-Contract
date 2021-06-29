@@ -16,7 +16,9 @@ Step Three: Test examples, https://pyteal.readthedocs.io/en/stable/examples.html
 
 Step Four: Read Creating Stateful Algorand Smart Contracts in Python with PyTeal, https://developer.algorand.org/articles/creating-stateful-algorand-smart-contracts-python-pyteal/
 
-Step Five: Implement Algorand Smart Contract in TEAL
+Step Five: Read Documentation for Goal, https://developer.algorand.org/docs/reference/cli/goal/goal/
+
+Step Six: Implement Algorand Smart Contract in TEAL
 
 # Instructions
 1. Write Teal Program
