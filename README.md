@@ -31,5 +31,6 @@ Step Six: Implement Algorand Smart Contract in TEAL
 
 # Copyright 
 Copyrigh Brian Haney 2021
+
 MIT License 
 
