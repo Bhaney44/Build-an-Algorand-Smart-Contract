@@ -29,6 +29,7 @@ Step Six: Implement Algorand Smart Contract in TEAL
 1. Node contact error (closed): https://github.com/algorand/pyteal/issues/68
 2. Cannot contact Algorand node (open): https://github.com/algorand/pyteal/issues/69
 
-# Copyright Brian Haney 2021
-# MIT License 
+# Copyright 
+Copyrigh Brian Haney 2021
+MIT License 
 
