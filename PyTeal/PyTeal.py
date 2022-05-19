@@ -8,7 +8,7 @@ sender = Addr("KM2C6WPCGREBUOXZPGULM4UZV7GRF4LECL43FFG3RXNOHROBBCJ662UUBA")
 reciever = Addr("H26J6JNSVLX3S5LXTKV6ZRD3EOL7O2GIPZFWYOLKGYHJZ3DON2KWONXDVQ")
 
 # Private key
-secret = Bytes("base32", "2323232323232323")
+secret = Bytes("base32", "")
 timeout = 1000
 
 def htlc(tmpl_seller=sender,
