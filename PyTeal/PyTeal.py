@@ -4,8 +4,8 @@
 from pyteal import *
 
 # Sender and reciever
-sender = Addr("KM2C6WPCGREBUOXZPGULM4UZV7GRF4LECL43FFG3RXNOHROBBCJ662UUBA")
-reciever = Addr("H26J6JNSVLX3S5LXTKV6ZRD3EOL7O2GIPZFWYOLKGYHJZ3DON2KWONXDVQ")
+sender = Addr("")
+reciever = Addr("")
 
 # Private key
 secret = Bytes("base32", "")
